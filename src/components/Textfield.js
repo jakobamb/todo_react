@@ -1,16 +1,19 @@
 import React from 'react'
 import { FormControl } from 'react-bootstrap'
-import { addTodo } from '../actions'
 
-export const Textfield = () =>
+export const Textfield = ({onTodoAdd}) =>
     <div className="Textfield">
         <FormControl
             id="formControlsText"
             type="text"
             label="Text"
             placeholder="Add todo"
-            onChange={() => {
-                addTodo(this.props.value)
+            onKeyPress={(e) => {
+                if (e.which === 13) {
+                    const text = e.target.value
+                    e.target.value = ''
+                    return onTodoAdd(text)
+                }
             }}
         />
     </div>

@@ -1,8 +1,13 @@
-import { store } from './redux/store'
+/**
+ * 
+ * @param {string} text 
+ */
+export const addTodo = (text) => ({
+    type: 'ADD_TODO',
+    text: text,
+    id: Date.now()
+})
 
-export const addTodo = (text) => {
-    store.dispatch({
-        type: 'ADD_TODO',
-        text: text
-    })
+export const modifyTodo = (todo) => {
+    
 }

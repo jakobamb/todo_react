@@ -1,40 +1,26 @@
 import React, { Component } from 'react'
 import './App.css'
-import { Textfield } from './components/Textfield'
-import { List } from './components/List'
 import { NavigationBar } from './components/NavigationBar'
 import { Panel } from 'react-bootstrap'
-import { store } from './redux/store'
+import { ListContainer } from './container/ListContainer'
+import { TextfieldContainer } from './container/TextfieldContainer'
+
 
 class App extends Component {
-    constructor() {
-        super()
-        this.setState({
-            todos: []
-        })
-    }
     render() {
         return (
             <div className="container">
                 <NavigationBar />
                 <Panel>
                     <Panel.Heading>
-                        <Textfield />
+                        <TextfieldContainer />
                     </Panel.Heading>
                     <Panel.Body>
-                        <List todos={this.state.todos}/>
+                        <ListContainer/>
                     </Panel.Body>
                 </Panel>
             </div>
         )
-    }
-
-    componentWillMount() {
-        store.subscribe(() => {
-            this.setState({
-                todos: store.getState().todos
-            })
-        })
     }
 }
 

@@ -1,5 +1,5 @@
 export const todoReducer = (
-    state = [
+    todos = [
         {
             text: 'Nummer eins',
             completed: false
@@ -7,11 +7,14 @@ export const todoReducer = (
     ],
     action) => {
 
-    const newState = state.slice()
+    const newTodos = todos.slice()
 
-    if (action.type === 'ADD_TODO') {
-        newState.push({ text: 'new todo', completed: false })
-        return newState
+    switch (action.type) {
+        case 'ADD_TODO':
+            newTodos.push({ text: action.text, completed: false })
+            return newTodos
+        default:
+            new Error('Unknown action', action)
     }
-    return state
+    return todos
 }
