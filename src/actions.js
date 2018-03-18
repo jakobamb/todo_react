@@ -1,4 +1,5 @@
 /**
+ * Add a todo to the list
  * 
  * @param {string} text 
  */
@@ -8,6 +9,22 @@ export const addTodo = (text) => ({
     id: Date.now()
 })
 
-export const modifyTodo = (todo) => {
-    
-}
+/**
+ * Todo has been checked as completed
+ * 
+ * @param {object} todo 
+ */
+export const checkTodo = (id) => ({
+    type: 'CHECK_TODO',
+    id: id
+})
+
+/**
+ * Remove a todo
+ * 
+ * @param {number} id 
+ */
+export const removeTodo = (id) => ({
+    type: 'REMOVE_TODO',
+    id: id
+})

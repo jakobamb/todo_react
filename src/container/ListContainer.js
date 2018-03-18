@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { modifyTodo } from '../actions'
+import { checkTodo } from '../actions'
 import { List } from '../components/List'
 
 export const ListContainer = connect(
@@ -9,8 +9,8 @@ export const ListContainer = connect(
         }),
     dispatch =>
         ({
-            onTodoModify(todo) {
-                dispatch(modifyTodo(todo))
+            onTodoChecked(todo) {
+                dispatch(checkTodo(todo))
             }
         })
 )(List)

@@ -9,7 +9,7 @@ export const Textfield = ({onTodoAdd}) =>
             label="Text"
             placeholder="Add todo"
             onKeyPress={(e) => {
-                if (e.which === 13) {
+                if (e.which === 13 && e.target.value !== '') {
                     const text = e.target.value
                     e.target.value = ''
                     return onTodoAdd(text)
