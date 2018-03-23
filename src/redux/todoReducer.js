@@ -1,14 +1,13 @@
 
 export const todoReducer = (todos = [], action) => {
-    const newTodos = todos.slice()
 
     switch (action.type) {
         case 'ADD_TODO':
-            newTodos.push({ id: action.id, text: action.text, completed: false })
-            return newTodos
-        case 'CHECK_TODO': 
+            return todos.concat([{ id: action.id, text: action.text, completed: false }])
+        case 'CHECK_TODO':
+            return todos.map((todo) => todo.id === action.id ? {...todo, completed: !todo.completed} : todo)
         case 'REMOVE_TODO':
-            return newTodos.filter((todo) => todo.id !== action.id)
+            return todos.filter((todo) => todo.id !== action.id)
         default:
             new Error('Unknown action', action)
     }

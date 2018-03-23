@@ -4,7 +4,13 @@ import { NavigationBar } from './components/NavigationBar'
 import { Panel } from 'react-bootstrap'
 import { ListContainer } from './container/ListContainer'
 import { TextfieldContainer } from './container/TextfieldContainer'
+import { ListAll } from './components/ListAll'
+import { ListCompleted } from './components/ListCompleted'
+import { ListUncompleted } from './components/ListUncompleted'
 
+const ListAllComponent = ListContainer(ListAll)
+const ListUncompletedComponent = ListContainer(ListUncompleted)
+const ListCompletedComponent = ListContainer(ListCompleted)
 
 class App extends Component {
     render() {
@@ -16,7 +22,9 @@ class App extends Component {
                         <TextfieldContainer />
                     </Panel.Heading>
                     <Panel.Body>
-                        <ListContainer/>
+                        <ListAllComponent />
+                        <ListUncompletedComponent />
+                        <ListCompletedComponent />
                     </Panel.Body>
                 </Panel>
             </div>

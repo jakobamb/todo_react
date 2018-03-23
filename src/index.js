@@ -7,10 +7,13 @@ import registerServiceWorker from './registerServiceWorker'
 
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
+import { HashRouter } from 'react-router-dom'
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <HashRouter>
+            <App />
+        </HashRouter>
     </Provider>,
     document.getElementById('root'))
 registerServiceWorker()

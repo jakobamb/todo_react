@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { FormControl } from 'react-bootstrap'
 
 export const Textfield = ({onTodoAdd}) =>
@@ -17,3 +18,7 @@ export const Textfield = ({onTodoAdd}) =>
             }}
         />
     </div>
+
+Textfield.propTypes = {
+    onTodoAdd: PropTypes.func.isRequired
+}

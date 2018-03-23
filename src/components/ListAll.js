@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ListGroup } from 'react-bootstrap'
 import { Todo } from './Todo'
 
-export const List = ({todos, onTodoChecked}) =>
+export const ListAll = ({todos, onTodoChecked}) =>
     <ListGroup>
         {todos.map((item) => 
             <Todo key={item.id} id={item.id} text={item.text} 
@@ -11,6 +11,7 @@ export const List = ({todos, onTodoChecked}) =>
         }    
     </ListGroup>
 
-List.propTypes = {
+ListAll.propTypes = {
     todos: PropTypes.array.isRequired,
+    onTodoChecked: PropTypes.func,
 }

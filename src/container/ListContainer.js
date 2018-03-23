@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import { checkTodo } from '../actions'
-import { List } from '../components/List'
 
 export const ListContainer = connect(
     state => 
@@ -13,4 +12,4 @@ export const ListContainer = connect(
                 dispatch(checkTodo(todo))
             }
         })
-)(List)
+)
